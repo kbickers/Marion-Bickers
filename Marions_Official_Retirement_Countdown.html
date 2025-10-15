@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marions Official Retirement Countdown</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 40px; }
+        #demo { font-size: 2em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Countdown to Marions Retirement! Love You Sexy Little Lady With Heart Shaped Eyes</h1>
+    <p id="demo"></p>
+    <script>
+        // Set the retirement date - 8 years from today
+        var retirementDate = new Date();
+        retirementDate.setFullYear(retirementDate.getFullYear() + 8);
+        retirementDate.setHours(0,0,0,0);
+
+        // Update every second
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = retirementDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("demo").innerHTML =
+                days + " days " + hours + " hours " +
+                minutes + " minutes " + seconds + " seconds";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "Happy Retirement!";
+            }
+        }, 1000);
+    </script>
+    <p style="margin-top:42px;font-size:1em;">
+        Share this page with your wife or open it together for a daily countdown.
+    </p>
+</body>
+</html>
